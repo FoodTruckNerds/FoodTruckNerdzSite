@@ -17,6 +17,7 @@ This directory contains client + server code for barebones interactive map webpa
 1. **Install Dependencies**:
 
     ```sh
+    cd map
     npm install
     ```
 
@@ -24,7 +25,7 @@ This directory contains client + server code for barebones interactive map webpa
     - Create a `.env` file in the `map` directory and add the necessary environment variables.
 
     ```sh
-    GOOGLE_MAPS_API_KEY=get from tyler
+    GOOGLE_MAPS_API_KEY="get from tyler. It's super secret."
     ```
 
 3. **Run the Server**:
