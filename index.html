@@ -6,20 +6,19 @@
   <title>Food Truck Finder</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://js.radar.com/v4.4.10/radar.css" rel="stylesheet">
+<script src="https://js.radar.com/v4.4.10/radar.min.js"></script>
 </head>
 <body>
   <!-- Header with logo and navigation -->
   <header class="site-header">
     <div class="container">
       <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10 17h4V5H2v12h3"/>
-          <path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5"/>
-          <path d="M14 17h1"/>
-          <circle cx="7.5" cy="17.5" r="2.5"/>
-          <circle cx="17.5" cy="17.5" r="2.5"/>
-        </svg>
-        <a href="/" class="logo-text">FoodTruckFinder</a>
+       <img src="foodtrucknerdz.png" alt="logo"/>
+        <a href="/" class="logo-text">Food Truck Nerdz</a>
       </div>
       
       <nav class="main-nav">
@@ -48,7 +47,7 @@
 
   <!-- Main content -->
   <main class="container">
-    <h1>Find Food Trucks Near You</h1>
+    <h1>Find Food Trucks Near You!</h1>
     
     <div class="content-grid">
       <!-- Left column: Search and location -->
@@ -92,7 +91,7 @@
           </div>
         </div>
       </div>
-
+     
       <!-- Right column: Map -->
       <div class="map-column">
         <div class="card map-card">
@@ -101,6 +100,7 @@
               <p>Google Map would display here</p>
               <p class="map-note">To implement the actual map, you need to add your Google Maps API key in the code.</p>
               <!-- Mock food truck markers -->
+   
               <div class="map-marker" style="top: 25%; left: 25%;"></div>
               <div class="map-marker" style="top: 33%; left: 50%;"></div>
               <div class="map-marker" style="top: 50%; left: 33%;"></div>
@@ -111,7 +111,14 @@
     </div>
   </main>
 
+  <div id="map"></div>
+
+
+  <link href="https://js.radar.com/v4.4.10/radar.css" rel="stylesheet">
+  <script src="https://js.radar.com/v4.4.10/radar.min.js"></script>
+  <script src="map/script.js"></script>
   <script src="script.js"></script>
+
   <!-- Uncomment and add your API key to enable Google Maps -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script> -->
 </body>
