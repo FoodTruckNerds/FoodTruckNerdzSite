@@ -31,7 +31,6 @@ This directory contains client + server code for barebones interactive map webpa
 3. **Run the Server**:
 
     ```sh
-    cd ..
     npm start
     ```
 
