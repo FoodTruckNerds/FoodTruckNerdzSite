@@ -73,19 +73,50 @@ function initializeApp() {
             const ne = bounds.getNorthEast();
             const sw = bounds.getSouthWest();
             
-            const response = await fetch(
-                `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/google-search?` + 
-                `lat=${lat}&lng=${lng}` +
-                `&ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
-                `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
-            );
+            // Fetch from both APIs in parallel
+            const [googleResponse, trucksResponse] = await Promise.all([
+                fetch(
+                    `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/google-search?` + 
+                    `lat=${lat}&lng=${lng}` +
+                    `&ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
+                    `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
+                ),
+                fetch(
+                    `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/trucks?` +
+                    `ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
+                    `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
+                )
+            ]);
             
-            if (!response.ok) {
+            if (!googleResponse.ok || !trucksResponse.ok) {
                 throw new Error('Failed to fetch food truck data');
             }
             
-            const data = await response.json();
-            displayFoodTrucks(data.locations);
+            const [googleData, trucksData] = await Promise.all([
+                googleResponse.json(),
+                trucksResponse.json()
+            ]);
+
+            // Transform registered trucks to match the display format
+            const registeredTrucks = trucksData.trucks.map(truck => ({
+                name: truck.name,
+                coordinates: truck.location,
+                address: 'Registered Food Truck',
+                open: truck.status === 'open',
+                isRegistered: true,
+                lastUpdated: truck.lastUpdated
+            }));
+
+            // Merge both sources, marking Google Places results as unregistered
+            const allTrucks = [
+                ...registeredTrucks,
+                ...(googleData.locations || []).map(loc => ({
+                    ...loc,
+                    isRegistered: false
+                }))
+            ];
+
+            displayFoodTrucks(allTrucks);
             
         } catch (error) {
             console.error('Error fetching food trucks:', error);
@@ -112,6 +143,8 @@ function initializeApp() {
             const rating = truck.rating ? `Rating: ${truck.rating}★` : 'No rating';
             const address = truck.address || 'No address provided';
             const openStatus = truck.open ? '🟢 Open' : truck.open === false ? '🔴 Closed' : '⚫ Unknown';
+            const registeredBadge = truck.isRegistered ? '✓ Registered' : '';
+            const lastUpdated = truck.lastUpdated ? `Last updated: ${new Date(truck.lastUpdated).toLocaleString()}` : '';
             const lat = truck.coordinates?.latitude;
             const lng = truck.coordinates?.longitude;
             
@@ -120,7 +153,7 @@ function initializeApp() {
             
             // Create a marker
             const marker = Radar.ui.marker({
-                color: truck.open ? '#4CAF50' : '#FF6B6B',
+                color: truck.isRegistered ? (truck.open ? '#4CAF50' : '#FF6B6B') : '#888888',
                 size: 'small'
             })
             .setLngLat([lng, lat])
@@ -132,8 +165,9 @@ function initializeApp() {
                             <div class="p-2">
                                 <h3 class="font-bold">${name}</h3>
                                 <p class="text-sm">${rating}</p>
-                                <p class="text-sm">${openStatus}</p>
+                                <p class="text-sm">${openStatus} ${registeredBadge}</p>
                                 <p class="text-xs mt-2">${address}</p>
+                                ${lastUpdated ? `<p class="text-xs">${lastUpdated}</p>` : ''}
                             </div>
                         `;
                         return div;
@@ -147,10 +181,11 @@ function initializeApp() {
             // Add to the list view
             listHTML += `
                 <div class="truck-item">
-                    <h3>${name}</h3>
+                    <h3>${name} ${registeredBadge ? `<span class="registered-badge">${registeredBadge}</span>` : ''}</h3>
                     <p>${rating}</p>
                     <p>${openStatus}</p>
                     <p>${address}</p>
+                    ${lastUpdated ? `<p class="last-updated">${lastUpdated}</p>` : ''}
                     <button onclick="flyToTruck(${lng}, ${lat})">
                         View on Map
                     </button>
