@@ -36,3 +36,12 @@ This directory contains client + server code for barebones interactive map webpa
 
 4. **Open the Map Page**:
     - http://localhost:3000
+
+OR
+
+    - Run Live Server in VSCode. This will start a separate server. Access the page in the `\map` subdirectory:
+    
+      ```
+      http://127.0.0.1:5501/map/
+      # 5501 or whatever port yours runs on
+      ```
