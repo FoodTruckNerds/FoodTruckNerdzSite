@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Truck Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <!-- Header with logo and navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 17h4V5H2v12h3"/>
+          <path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5"/>
+          <path d="M14 17h1"/>
+          <circle cx="7.5" cy="17.5" r="2.5"/>
+          <circle cx="17.5" cy="17.5" r="2.5"/>
+        </svg>
+        <a href="/" class="logo-text">FoodTruckFinder</a>
+      </div>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="#">Browse Trucks</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="auth-buttons">
+        <button class="btn btn-outline">Sign In</button>
+        <button class="btn btn-primary">Sign Up</button>
+      </div>
+      
+      <button class="mobile-menu-toggle" id="menuToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <h1>Find Food Trucks Near You</h1>
+    
+    <div class="content-grid">
+      <!-- Left column: Search and location -->
+      <div class="search-column">
+        <!-- Search card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Search Food Trucks</h2>
+          </div>
+          <div class="card-content">
+            <div class="search-container">
+              <div class="search-input-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" id="foodTruckSearch" placeholder="Search by food truck name..." class="search-input">
+              </div>
+              <button class="btn btn-primary" id="searchButton">Search</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Your Location</h2>
+          </div>
+          <div class="card-content">
+            <div class="location-input-wrapper">
+              <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <input type="text" id="addressInput" placeholder="Enter your address..." class="location-input">
+            </div>
+            <div class="location-buttons">
+              <button class="btn btn-outline" id="getCurrentLocation">Use Current Location</button>
+              <button class="btn btn-primary" id="navigateToMaps">Navigate in Google Maps</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: Map -->
+      <div class="map-column">
+        <div class="card map-card">
+          <div id="map">
+            <div class="map-placeholder">
+              <p>Google Map would display here</p>
+              <p class="map-note">To implement the actual map, you need to add your Google Maps API key in the code.</p>
+              <!-- Mock food truck markers -->
+              <div class="map-marker" style="top: 25%; left: 25%;"></div>
+              <div class="map-marker" style="top: 33%; left: 50%;"></div>
+              <div class="map-marker" style="top: 50%; left: 33%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <!-- Uncomment and add your API key to enable Google Maps -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script> -->
+</body>
+</html>
