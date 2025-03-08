@@ -13,4 +13,4 @@ if ! curl -s "http://localhost:3000" > /dev/null; then
 fi
 
 # Make the API request and format the output using jq
-curl -s "http://localhost:3000/api/food-trucks?lat=${LAT}&lng=${LNG}" | jq '.'
+curl -s "http://localhost:3000/api/food-trucks?lat=${LAT}&lng=${LNG}"
