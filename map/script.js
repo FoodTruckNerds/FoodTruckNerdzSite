@@ -74,7 +74,7 @@ function initializeApp() {
             const sw = bounds.getSouthWest();
             
             const response = await fetch(
-                `http://localhost:3000/api/food-trucks?` + 
+                `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/google-search?` + 
                 `lat=${lat}&lng=${lng}` +
                 `&ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
                 `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
