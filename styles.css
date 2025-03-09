@@ -1,3 +1,7 @@
+/* This import loads the locally-installed copy of Tailwind. */
+/* uncomment the below line to use tailwindcss local copy */
+/* @import "tailwindcss"; */
+
 /* Base styles */
 :root {
   --primary: #3b82f6;
@@ -83,6 +87,10 @@ h2 {
   border-style: solid;
   border-color: red;
   border-width: 2px;
+}
+
+.btn-holder {
+  height:50px;
 }
 
 .btn-outline {
