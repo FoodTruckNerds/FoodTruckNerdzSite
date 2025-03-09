@@ -1,4 +1,5 @@
-const mapscript = require("./map/script");
+const { API_URL } = require('./config');
+// const mapscript = require("./map/script");
 // Mock data for food trucks
 
 const MOCK_FOOD_TRUCKS = [
@@ -189,7 +190,7 @@ function initializeApp() {
             const sw = bounds.getSouthWest();
             
             const response = await fetch(
-                `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/google-search?` + 
+                `${API_URL}/google-search?` +
                 `lat=${lat}&lng=${lng}` +
                 `&ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
                 `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`

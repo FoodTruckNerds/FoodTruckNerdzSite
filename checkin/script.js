@@ -1,3 +1,5 @@
+const { API_URL } = require('../config');
+
 let currentLocation = null;
 
 document.getElementById('locationBtn').addEventListener('click', () => {
@@ -36,7 +38,7 @@ document.getElementById('checkinForm').addEventListener('submit', async (e) => {
     };
 
     try {
-        const response = await fetch('https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/checkin', {
+        const response = await fetch(`${API_URL}/checkin`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
