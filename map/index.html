@@ -7,6 +7,7 @@
     <!-- Radar SDK -->
     <link href="https://js.radar.com/v4.4.10/radar.css" rel="stylesheet">
     <script src="https://js.radar.com/v4.4.10/radar.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
     <style>
         body {
             margin: 0;
@@ -26,7 +27,7 @@
         .sidebar {
             flex: 1;
             max-width: 400px;
-            padding: 20px;
+            padding: 0 20px;
             overflow-y: auto;
         }
 
@@ -103,10 +104,7 @@
         
         <!-- Sidebar with food truck list -->
         <div class="sidebar">
-            <header>
-                <h1 style="font-family: Arial, Helvetica, sans-serif;">Food Truck Tracker</h1>
-                <p style="font-family: Arial, Helvetica, sans-serif;">Find food trucks near you!</p>
-            </header>
+       
             
             <div id="trucks-container">
                 <!-- Food trucks will be populated here -->

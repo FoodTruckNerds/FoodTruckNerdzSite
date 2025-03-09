@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Truck Check-in</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1 style="font-family:Arial, Helvetica, sans-serif">Food Truck Check-in</h1>
-        <form id="checkinForm">
-            <div class="form-group">
-                <label for="truckId" style="font-family: Arial, Helvetica, sans-serif;">Truck ID</label>
-                <input type="text" id="truckId" required>
-            </div>
-            <div class="form-group">
-                <label for="status" style="font-family: Arial, Helvetica, sans-serif;" >Status</label>
-                <select id="status" required>
-                    <option value="open">Open</option>
-                    <option value="closed">Closed</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="button" id="locationBtn" style="background-color:red;">Get Current Location</button>
-                <div id="coordinates"></div>
-            </div>
-            <button type="submit" style="background-color:red;">Check In</button>
-        </form>
-        <div id="message"></div>
-    </div>
+    <form id="checkinForm">
+        <div class="form-group">
+            <label for="truckId" style="font-family: Arial, Helvetica, sans-serif;">Truck ID</label>
+            <input type="text" id="truckId" required>
+        </div>
+      
+        <div class="form-group">
+            <button class="btn btn-primary" type="button" id="locationBtn">Get Current
+                Location</button>
+            <div id="coordinates"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Check In</button>
+    </form>
+    <div id="message"></div>
     <script src="script.js"></script>
 </body>
+
 </html>

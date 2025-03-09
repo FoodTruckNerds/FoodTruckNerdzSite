@@ -30,6 +30,12 @@ body {
   padding: 0 1rem;
 }
 
+#checkin {
+  margin: 0;
+  padding: 0 2rem;
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+}
+
 /* Typography */
 
 .logo img {
@@ -74,6 +80,10 @@ h2 {
 .btn-primary {
   background-color:red;
   color: white;
+  border-width: 2px;
+  border-color: red;
+  border-style: solid;
+  
 }
 
 .btn-primary:hover {
