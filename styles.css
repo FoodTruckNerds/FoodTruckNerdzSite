@@ -284,6 +284,11 @@ main {
   border-radius: 50%;
 }
 
+#map {
+  width: 100vh;
+  margin: auto;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
   .main-nav {
@@ -309,3 +314,4 @@ main {
     min-height: 500px;
   }
 }
+
