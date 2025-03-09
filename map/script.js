@@ -1,6 +1,3 @@
-// API configuration
-const { API_URL } = require('../config');
-
 // API keys
 const RADAR_PUBLISHABLE_KEY = 'prj_test_pk_c39bd54cbe50eff6dac53383f2d4f21ab7d65a1c';
 let mapLocation = [-90.0490, 35.1495] // Memphis, TN
@@ -79,13 +76,13 @@ function initializeApp() {
             // Fetch from both APIs in parallel
             const [googleResponse, trucksResponse] = await Promise.all([
                 fetch(
-                    `${API_URL}/google-search?` +
+                    `${window.API_URL}/google-search?` +
                     `lat=${lat}&lng=${lng}` +
                     `&ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
                     `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
                 ),
                 fetch(
-                    `${API_URL}/trucks?` +
+                    `${window.API_URL}/trucks?` +
                     `ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
                     `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
                 )

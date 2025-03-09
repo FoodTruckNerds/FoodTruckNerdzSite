@@ -1,5 +1,3 @@
-const { API_URL } = require('../../config');
-
 async function handleCallback() {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
@@ -11,7 +9,7 @@ async function handleCallback() {
     }
 
     try {
-        const response = await fetch(`${API_URL}/auth/google/callback`, {
+        const response = await fetch(`${window.API_URL}/auth/google/callback`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

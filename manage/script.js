@@ -1,8 +1,6 @@
-const { API_URL } = require('../config');
-
 async function checkSession() {
     try {
-        const response = await fetch(`${API_URL}/business-info`, {
+        const response = await fetch(`${window.API_URL}/business-info`, {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -51,7 +49,7 @@ function showBusinessInfo(data) {
 }
 
 function initiateGoogleLogin() {
-    window.location.href = `${API_URL}/auth/login`;
+    window.location.href = `${window.API_URL}/auth/login`;
 }
 
 // Add event listeners when the page loads
