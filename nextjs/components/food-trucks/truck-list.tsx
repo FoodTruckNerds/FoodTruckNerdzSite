@@ -1,6 +1,12 @@
 'use client';
-
 import { useFoodTrucksStore, FoodTruck } from '@/store/food-trucks-store';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+} from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Loader2 } from 'lucide-react';
 
 export default function TruckList() {
   const { trucks, loading, error, searchTrucks } = useFoodTrucksStore();
@@ -10,14 +16,14 @@ export default function TruckList() {
   if (loading) {
     return (
       <div className="flex justify-center items-center p-8">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-600"></div>
+        <Loader2 className="h-8 w-8 animate-spin text-red-600" />
       </div>
     );
   }
   
   if (error) {
     return (
-      <div className="bg-red-50 text-red-600 p-4 rounded-md">
+      <div className="bg-destructive/10 text-destructive p-4 rounded-md">
         {error}
       </div>
     );
@@ -45,48 +51,57 @@ export default function TruckList() {
 
 function TruckItem({ truck }: { truck: FoodTruck }) {
   return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-4">
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="font-semibold">{truck.name}</h3>
-          <div className="text-sm text-muted-foreground">
-            {truck.rating ? `Rating: ${truck.rating}★` : 'No rating'}
-          </div>
-          <div className="text-sm">
-            {truck.open ? (
-              <span className="text-green-600">🟢 Open</span>
-            ) : truck.open === false ? (
-              <span className="text-red-600">🔴 Closed</span>
-            ) : (
-              <span className="text-gray-600">⚫ Unknown</span>
-            )}
-            
-            {truck.isRegistered && (
-              <span className="ml-2 inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                Registered
-              </span>
-            )}
-          </div>
-          <div className="text-sm mt-1">
-            {truck.address || 'No address provided'}
-          </div>
-          {truck.lastUpdated && (
-            <div className="text-xs text-muted-foreground mt-1">
-              Last updated: {new Date(truck.lastUpdated).toLocaleString()}
+    <Card>
+      <CardContent className="p-4">
+        <div className="flex justify-between items-start">
+          <div>
+            <h3 className="font-semibold">{truck.name}</h3>
+            <div className="text-sm text-muted-foreground">
+              {truck.rating ? `Rating: ${truck.rating}★` : 'No rating'}
             </div>
-          )}
+            <div className="text-sm flex items-center gap-2">
+              {truck.open ? (
+                <span className="text-green-600 flex items-center">
+                  <span className="block w-2 h-2 rounded-full bg-green-600 mr-1"></span> Open
+                </span>
+              ) : truck.open === false ? (
+                <span className="text-red-600 flex items-center">
+                  <span className="block w-2 h-2 rounded-full bg-red-600 mr-1"></span> Closed
+                </span>
+              ) : (
+                <span className="text-gray-600 flex items-center">
+                  <span className="block w-2 h-2 rounded-full bg-gray-600 mr-1"></span> Unknown
+                </span>
+              )}
+              
+              {truck.isRegistered && (
+                <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                  Registered
+                </Badge>
+              )}
+            </div>
+            <div className="text-sm mt-1">
+              {truck.address || 'No address provided'}
+            </div>
+            {truck.lastUpdated && (
+              <div className="text-xs text-muted-foreground mt-1">
+                Last updated: {new Date(truck.lastUpdated).toLocaleString()}
+              </div>
+            )}
+          </div>
+          
+          <Button 
+            variant="default" 
+            size="sm"
+            onClick={() => {
+              // In a real implementation, we would fly to the truck on the map
+              console.log('View on map:', truck.name);
+            }}
+          >
+            View on Map
+          </Button>
         </div>
-        
-        <button 
-          className="px-3 py-1 text-sm bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
-          onClick={() => {
-            // In a real implementation, we would fly to the truck on the map
-            console.log('View on map:', truck.name);
-          }}
-        >
-          View on Map
-        </button>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

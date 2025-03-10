@@ -1,10 +1,15 @@
 'use client';
-
 import { useEffect, useRef, useState } from 'react';
 import { useLocationStore } from '@/store/location-store';
 import { useFoodTrucksStore } from '@/store/food-trucks-store';
 import { useUIStore } from '@/store/ui-store';
 import { FoodTruck } from '@/store/food-trucks-store';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@/components/ui/card';
 
 // Define a type for the Radar SDK
 declare global {
@@ -167,13 +172,15 @@ export default function MapContainer() {
   };
   
   return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden">
-      <div className="p-4 border-b">
-        <h2 className="text-xl font-semibold">Food Truck Map</h2>
-      </div>
-      <div className="h-[500px] w-full">
-        <div ref={mapRef} className="h-full w-full" />
-      </div>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Food Truck Map</CardTitle>
+      </CardHeader>
+      <CardContent className="p-0">
+        <div className="h-[500px] w-full">
+          <div ref={mapRef} className="h-full w-full" />
+        </div>
+      </CardContent>
+    </Card>
   );
 }
