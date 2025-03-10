@@ -1,5 +1,5 @@
 {
-  "name": "nextjs",
+  "name": "food-truck-tracker",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "preinstall": "npx --yes only-allow pnpm"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tyler Johnson",
   "license": "ISC",
   "description": "Food Truck Nerdz Next.js Implementation",
   "dependencies": {
