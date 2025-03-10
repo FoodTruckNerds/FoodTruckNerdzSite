@@ -63,6 +63,6 @@ A modern implementation of the Food Truck Nerdz application using Next.js, Tailw
 
 The application uses the following API endpoints:
 
-- `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/google-search`: Get food trucks from Google Places
-- `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/trucks`: Get registered food trucks
-- `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/checkin`: Check in a food truck
+- `${env.NEXT_PUBLIC_API_URL}/google-search`: Get food trucks from Google Places
+- `${env.NEXT_PUBLIC_API_URL}/trucks`: Get registered food trucks
+- `${env.NEXT_PUBLIC_API_URL}/checkin`: Check in a food truck

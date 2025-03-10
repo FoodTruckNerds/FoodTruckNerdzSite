@@ -1,0 +1,52 @@
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.google-btn {
+    background-color: #4285f4;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.google-btn:hover {
+    background-color: #357abd;
+}
+
+.business-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.business-item h3 {
+    margin: 0 0 12px 0;
+    color: #2d3748;
+}
+
+.business-item p {
+    margin: 8px 0;
+    color: #4a5568;
+}
+
+#businessList {
+    margin-top: 32px;
+}
+
+.error-message {
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 16px 0;
+}

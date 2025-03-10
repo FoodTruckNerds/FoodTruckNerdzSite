@@ -40,13 +40,13 @@ export const useFoodTrucksStore = create<FoodTrucksState>((set, get) => ({
       // Fetch from both APIs in parallel
       const [googleResponse, trucksResponse] = await Promise.all([
         fetch(
-          `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/google-search?` + 
+          `${process.env.NEXT_PUBLIC_API_URL}/google-search?` + 
           `lat=${lat}&lng=${lng}` +
           `&ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
           `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
         ),
         fetch(
-          `https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/trucks?` +
+          `${process.env.NEXT_PUBLIC_API_URL}/trucks?` +
           `ne_lat=${ne.lat}&ne_lng=${ne.lng}` +
           `&sw_lat=${sw.lat}&sw_lng=${sw.lng}`
         )

@@ -70,7 +70,7 @@ export const useCheckinStore = create<CheckinState>((set, get) => ({
     set({ isSubmitting: true, error: null, success: null });
     
     try {
-      const response = await fetch('https://food-truck-api-main-4443f2d.d2.zuplo.dev/api/checkin', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
