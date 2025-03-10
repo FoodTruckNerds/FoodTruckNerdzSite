@@ -1,8 +1,24 @@
 'use client';
-
 import { useState } from 'react';
 import { useCheckinStore } from '@/store/checkin-store';
 import { useUIStore } from '@/store/ui-store';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { 
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem
+} from '@/components/ui/select';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter
+} from '@/components/ui/card';
+import { toast } from 'sonner';
 
 export default function CheckinForm() {
   const { 
@@ -28,7 +44,6 @@ export default function CheckinForm() {
       });
       return;
     }
-
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setLocation({
@@ -62,14 +77,14 @@ export default function CheckinForm() {
   };
   
   return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
-      <div className="p-4 border-b">
-        <h2 className="text-xl font-semibold">Food Truck Check-in</h2>
-      </div>
-      <div className="p-4">
+    <Card>
+      <CardHeader>
+        <CardTitle>Food Truck Check-in</CardTitle>
+      </CardHeader>
+      <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
-            <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm">
+            <div className="bg-destructive/10 text-destructive p-3 rounded-md text-sm">
               {error}
             </div>
           )}
@@ -81,13 +96,12 @@ export default function CheckinForm() {
           )}
           
           <div className="space-y-2">
-            <label htmlFor="truckId" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            <label htmlFor="truckId" className="text-sm font-medium leading-none">
               Truck ID
             </label>
-            <input
+            <Input
               id="truckId"
               type="text"
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               value={truckId}
               onChange={(e) => setTruckId(e.target.value)}
               required
@@ -95,29 +109,29 @@ export default function CheckinForm() {
           </div>
           
           <div className="space-y-2">
-            <label htmlFor="status" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            <label htmlFor="status" className="text-sm font-medium leading-none">
               Status
             </label>
-            <select
-              id="status"
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              value={status}
-              onChange={(e) => setStatus(e.target.value as 'open' | 'closed')}
-              required
-            >
-              <option value="open">Open</option>
-              <option value="closed">Closed</option>
-            </select>
+            <Select value={status} onValueChange={(value) => setStatus(value as 'open' | 'closed')}>
+              <SelectTrigger id="status" className="w-full">
+                <SelectValue placeholder="Select status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="open">Open</SelectItem>
+                <SelectItem value="closed">Closed</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           
           <div className="space-y-2">
-            <button
+            <Button
               type="button"
               onClick={handleGetLocation}
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 h-10 px-4 py-2 w-full"
+              variant="secondary"
+              className="w-full"
             >
               Get Current Location
-            </button>
+            </Button>
             
             {location && (
               <div className="text-sm text-muted-foreground">
@@ -126,15 +140,16 @@ export default function CheckinForm() {
             )}
           </div>
           
-          <button
+          <Button
             type="submit"
             disabled={isSubmitting || !location}
-            className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 h-10 px-4 py-2 w-full"
+            className="w-full"
+            variant="default"
           >
             {isSubmitting ? 'Checking in...' : 'Check In'}
-          </button>
+          </Button>
         </form>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
