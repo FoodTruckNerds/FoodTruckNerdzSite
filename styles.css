@@ -34,6 +34,12 @@ body {
   padding: 0 1rem;
 }
 
+#checkin {
+  margin: 0;
+  padding: 0 2rem;
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+}
+
 /* Typography */
 
 .logo img {
@@ -41,10 +47,9 @@ body {
 }
 
 .logo-text {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: 2px;
+  font-family: "Sriracha", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 
@@ -79,6 +84,10 @@ h2 {
 .btn-primary {
   background-color:red;
   color: white;
+  border-width: 2px;
+  border-color: red;
+  border-style: solid;
+  
 }
 
 .btn-primary:hover {
@@ -292,6 +301,11 @@ main {
   border-radius: 50%;
 }
 
+#map {
+  width: 100vh;
+  margin: auto;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
   .main-nav {
@@ -317,3 +331,4 @@ main {
     min-height: 500px;
   }
 }
+

@@ -180,15 +180,18 @@ function initializeApp() {
             
             // Add to the list view
             listHTML += `
-                <div class="truck-item">
-                    <h3>${name} ${registeredBadge ? `<span class="registered-badge">${registeredBadge}</span>` : ''}</h3>
-                    <p>${rating}</p>
-                    <p>${openStatus}</p>
-                    <p>${address}</p>
+                <div class="truck-item card">
+                    <h3>${name} </h3>
+                   
+                    <p>${openStatus} / ${rating}</p>  
+                   
                     ${lastUpdated ? `<p class="last-updated">${lastUpdated}</p>` : ''}
-                    <button onclick="flyToTruck(${lng}, ${lat})">
+                    <br>
+                    <button class="btn btn-primary" onclick="flyToTruck(${lng}, ${lat})">
                         View on Map
-                    </button>
+                    </button> ${registeredBadge ? `<span class="registered-badge" style= "margin-left: 10px; font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;"> ${registeredBadge}</span>` : ''}
                 </div>
             `;
         });

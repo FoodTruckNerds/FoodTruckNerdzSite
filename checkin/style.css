@@ -1,12 +1,7 @@
-.container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
 .form-group {
     margin-bottom: 1rem;
+    
 }
 
 label {
@@ -26,6 +21,8 @@ button {
     border: none;
     padding: 0.75rem;
     cursor: pointer;
+    border-radius: var(--radius)
+    
 }
 
 button:hover {
@@ -52,3 +49,4 @@ button:hover {
     font-size: 0.9rem;
     color: #666;
 }
+

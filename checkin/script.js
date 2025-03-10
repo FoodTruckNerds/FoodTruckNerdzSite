@@ -31,7 +31,7 @@ document.getElementById('checkinForm').addEventListener('submit', async (e) => {
 
     const data = {
         truckId: document.getElementById('truckId').value,
-        status: document.getElementById('status').value,
+        status: 'open',
         location: currentLocation
     };
 
