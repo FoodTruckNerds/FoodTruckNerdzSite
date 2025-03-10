@@ -12,7 +12,7 @@ FoodTruckNerdz is a service to track food trucks and provide bookmarking to cust
 
 Tailwind is available through 2 main ways: inclusion in the <head> tag via a CDN link or via download to the folder locally.
 
-### Option A: borrow Tailwind from public CDNs
+### Option A: borrow Tailwind from a public CDN
 
 Simply include this in the <head> tag of the HTML file: `<script src="https://cdn.tailwindcss.com"></script>`
 
