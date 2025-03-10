@@ -1,0 +1,39 @@
+{
+  "name": "nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Food Truck Nerdz Next.js Implementation",
+  "dependencies": {
+    "clsx": "2.1.1",
+    "next": "15.2.1",
+    "radar-sdk-js": "4.4.10",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "tailwind-merge": "3.0.2",
+    "zustand": "5.0.3"
+  },
+  "devDependencies": {
+    "@shadcn/ui": "0.0.4",
+    "@tailwindcss/postcss": "4.0.12",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "autoprefixer": "10.4.21",
+    "eslint": "9.22.0",
+    "postcss": "8.5.3",
+    "prettier": "3.5.3",
+    "tailwindcss": "4.0.12",
+    "tailwindcss-animate": "1.0.7",
+    "typescript": "5.8.2"
+  }
+}
