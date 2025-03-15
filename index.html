@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,19 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sriracha&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sriracha&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <!-- Header with logo and navigation -->
   <header class="site-header">
     <div class="container">
       <div class="logo">
-       <img src="foodtrucknerdz.png" alt="logo"/>
+        <img src="foodtrucknerdz.png" alt="logo" />
         <a href="/" class="logo-text" style="font-size: 30px;">Food Truck Nerdz</a>
       </div>
-      
+
       <nav class="main-nav">
         <ul>
           <li><a href="/" class="active">Home</a></li>
@@ -27,14 +29,15 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
-      
+
       <div class="auth-buttons">
         <button class="btn btn-outline">Sign In</button>
         <button class="btn btn-primary">Sign Up</button>
       </div>
-      
+
       <button class="mobile-menu-toggle" id="menuToggle">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" x2="20" y1="12" y2="12" />
           <line x1="4" x2="20" y1="6" y2="6" />
           <line x1="4" x2="20" y1="18" y2="18" />
@@ -45,7 +48,7 @@
 
   <!-- Main content -->
   <main class="container">
-    
+
     <div class="content-grid">
       <!-- Left column: Search and location -->
       <div class="search-column">
@@ -58,11 +61,13 @@
           <div class="card-content">
             <div class="search-container">
               <div class="search-input-wrapper">
-                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="11" cy="11" r="8"></circle>
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-                <input type="search" id="foodTruckSearch" placeholder="Search by food truck name..." class="search-input">
+                <input type="search" id="foodTruckSearch" placeholder="Search by food truck name..."
+                  class="search-input">
               </div>
               <div class="btn-holder">
                 <button class="btn btn-primary" id="searchButton">Search</button>
@@ -78,7 +83,8 @@
           </div>
           <div class="card-content">
             <div class="location-input-wrapper">
-              <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
@@ -91,31 +97,28 @@
           </div>
         </div>
 
-        
+
 
 
       </div>
-     
+
       <!-- Right column: Check In  -->
 
       <div id="checkin">
-        <h1 style="font-family:Arial, Helvetica, sans-serif">Food Truck Check-in</h1> 
+        <h1 style="font-family:Arial, Helvetica, sans-serif">Food Truck Check-in</h1>
         <iframe src="checkin/index.html" width="100%" height="100%" frameBorder="0"></iframe>
       </div>
 
 
   </main>
 
-  <br> 
- 
-
-<div id="map">
-  <iframe src="map/index.html" width="100%" height="500px" frameBorder="0"></iframe>
-  <div>
+  <br>
 
 
+  <div id="map">
+    <iframe src="map/index.html" width="100%" height="500px" frameBorder="0"></iframe>
+    <div>
 
-  <!-- Uncomment and add your API key to enable Google Maps -->
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script> -->
 </body>
+
 </html>
