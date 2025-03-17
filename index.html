@@ -10,13 +10,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sriracha&display=swap">
+  <!-- theme script. make sure to load theme before css to avoid flicker -->
+  <script>
+    let theme = localStorage.getItem('theme') || "light";
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark-theme");
+    }
+  </script>
   <!-- styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="homepage.css">
+  <!-- theme changer script -->
+  <script src="themes.js" ></script>
 </head>
 
 <body>
   <!-- Header with logo and navigation -->
-  <header class="site-header">
+  <header>
     <div class="container">
       <div class="logo">
         <img src="foodtrucknerdz.png" alt="logo" />
@@ -33,6 +42,10 @@
       </nav>
 
       <div class="auth-buttons">
+        <div id="night-toggle">
+          <input type="checkbox" id="night-toggle-checkbox"/>
+          <label for="night-toggle-checkbox"></label>
+        </div>
         <button class="btn btn-outline">Sign In</button>
         <button class="btn btn-primary">Sign Up</button>
       </div>
@@ -71,9 +84,7 @@
                 <input type="search" id="foodTruckSearch" placeholder="Search by food truck name..."
                   class="search-input">
               </div>
-              <div class="btn-holder">
-                <button class="btn btn-primary" id="searchButton">Search</button>
-              </div>
+              <button class="btn btn-primary" id="searchButton">Search</button>
             </div>
           </div>
         </div>
@@ -100,27 +111,44 @@
         </div>
 
 
-
-
       </div>
 
       <!-- Right column: Check In  -->
 
-      <div id="checkin">
+      <div id="checkin" style="outline: 1px black solid;">
         <h1 style="font-family:Arial, Helvetica, sans-serif">Food Truck Check-in</h1>
         <iframe src="checkin/index.html" width="100%" height="100%" frameBorder="0"></iframe>
       </div>
 
+      
+      <div id="map" style="outline: 1px black solid;">
+        <iframe src="map/index.html" width="100%" height="500px" frameBorder="0"></iframe>
+      </div>
 
   </main>
 
-  <br>
 
-
-  <div id="map">
-    <iframe src="map/index.html" width="100%" height="500px" frameBorder="0"></iframe>
-  </div>
-
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Browse Trucks</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <a href="#"><img src="facebook.svg" alt="facebook" /></a>
+          <a href="#"><img src="twitter.svg" alt="twitter" /></a>
+          <a href="#"><img src="instagram.svg" alt="instagram" /></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2021 Food Truck Nerdz. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
-
 </html>

@@ -1,0 +1,76 @@
+/* Header */
+
+@import "night-button.css";
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--background);
+}
+
+header .container {
+    display: flex;
+    height: 8rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo svg {
+    color: var(--primary);
+}
+
+.logo img {
+    height: 10vh;
+}
+
+.logo-text {
+    color: var(--foreground);
+}
+
+.main-nav {
+    display: none;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--foreground);
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: red;
+}
+
+.auth-buttons {
+    display: none;
+    gap: 0.5rem;
+}
+
+/* Typography */
+
+.logo-text {
+    font-family: "Sriracha", cursive;
+    font-weight: 700;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.25rem;
+    text-decoration: none;
+}

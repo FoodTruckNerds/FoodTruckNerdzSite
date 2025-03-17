@@ -1,0 +1,20 @@
+@layer light-theme {}
+
+@layer dark-theme {}
+
+
+footer {
+    min-height: 200px;
+    background-color: #0f172a;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(212, 212, 212);
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,9 +1,23 @@
-/* This import loads the locally-installed copy of Tailwind. */
-/* uncomment the below line to use tailwindcss local copy */
-/* @import "tailwindcss"; */
+/*-------------- Base styles ---------------*/
+/* This CSS file is for the style information that applies to all pages, not just the home page. */
 
-/* Base styles */
+/* Import the other page sections. */
+@import "header.css";
+@import "main.css";
+@import "footer.css";
+@import "dark-theme.css";
+
+/* @import "tailwindcss"; */
+/* Uncomment the above line to use a locally-installed copy of Tailwind. */
+
+/*------------- Themes -------------*/
+/*
+Light theme is the default. Dark theme is defined in the dark-theme.css file.
+Dark theme is applied by adding the .dark-theme class to the body element.
+*/
+
 :root {
+  /* Include theme colors only here */
   --primary: #3b82f6;
   --primary-hover: #2563eb;
   --background: white;
@@ -11,6 +25,12 @@
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
+}
+
+
+/*------------ Non-color styling -------------*/
+
+:root {
   --radius: 0.5rem;
 }
 
@@ -34,32 +54,14 @@ body {
   padding: 0 1rem;
 }
 
-#checkin {
-  margin: 0;
-  padding: 0 2rem;
-  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
-}
 
 /* Typography */
-
-.logo img {
-    width: 10vh;
-}
-
-.logo-text {
-  font-family: "Sriracha", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
 
 h1 {
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
-
 }
 
 h2 {
@@ -68,6 +70,7 @@ h2 {
 }
 
 /* Buttons */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -98,10 +101,6 @@ h2 {
   border-width: 2px;
 }
 
-.btn-holder {
-  height:50px;
-}
-
 .btn-outline {
   background-color: transparent;
   border: 1px solid var(--border);
@@ -110,67 +109,6 @@ h2 {
 
 .btn-outline:hover {
   background-color: var(--muted);
-}
-
-/* Header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  width: 100%;
-  border-bottom: 1px solid var(--border);
-  background-color: var(--background);
-}
-
-.site-header .container {
-  display: flex;
-  height: 8rem;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo svg {
-  color: var(--primary);
-}
-
-.logo-text {
-  font-weight: 700;
-  font-size: 1.25rem;
-  text-decoration: none;
-  color: var(--foreground);
-}
-
-.main-nav {
-  display: none;
-}
-
-.main-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-}
-
-.main-nav a {
-  font-size: 17px;
-  font-weight: 500;
-  text-decoration: none;
-  color: var(--foreground);
-  transition: color 0.2s ease;
-}
-
-.main-nav a:hover, .main-nav a.active {
-  color: red;
-}
-
-.auth-buttons {
-  display: none;
-  gap: 0.5rem;
 }
 
 .mobile-menu-toggle {
@@ -183,18 +121,9 @@ h2 {
   color: var(--foreground);
 }
 
-/* Main content */
-main {
-  padding: 2rem 1rem;
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
 
 /* Cards */
+
 .card {
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -211,7 +140,9 @@ main {
   padding: 1rem;
 }
 
+
 /* Search */
+
 .search-container {
   display: flex;
   gap: 0.5rem;
@@ -237,7 +168,9 @@ main {
   font-size: 0.875rem;
 }
 
+
 /* Location */
+
 .location-input-wrapper {
   position: relative;
   margin-bottom: 1rem;
@@ -264,49 +197,15 @@ main {
   gap: 0.5rem;
 }
 
+
 /* Map */
+
 .map-card {
   height: 500px;
 }
 
-#map {
-  height: 100%;
-  width: 100%;
-  background-color: var(--muted);
-  position: relative;
-}
-
-.map-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  text-align: center;
-}
-
-.map-note {
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
-  margin-top: 0.5rem;
-}
-
-.map-marker {
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--primary);
-  border-radius: 50%;
-}
-
-#map {
-  width: 100vh;
-  margin: auto;
-}
-
 /* Responsive */
+
 @media (min-width: 768px) {
   .main-nav {
     display: flex;
@@ -331,4 +230,3 @@ main {
     min-height: 500px;
   }
 }
-

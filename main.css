@@ -1,0 +1,9 @@
+@layer light-theme {}
+
+@layer dark-theme {}
+
+/* Main content */
+main {
+    padding: 2rem 1rem;
+    padding-bottom: 50px;
+}

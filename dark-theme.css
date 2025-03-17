@@ -1,0 +1,11 @@
+/* Dark mode overrides. This class gets added to the body when the dark mode toggle is clicked. */
+.dark-theme {
+  --primary: #162d53;
+  --primary-hover: #143680;
+  --background: rgb(27, 27, 27);
+  --foreground: #d4d4d4;
+  --muted: #252627;
+  --muted-foreground: #7b7e81;
+  --border: #e2e8f0;
+  --radius: 0.5rem;
+}

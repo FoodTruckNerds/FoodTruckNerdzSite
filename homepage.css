@@ -1,0 +1,15 @@
+/* This is the CSS file that the home page loads. This file loads the style.css file */
+@import "style.css";
+@import "map.css";
+
+#checkin {
+    margin: 0;
+    padding: 0 2rem;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
