@@ -1,11 +1,57 @@
 /* Dark mode overrides. This class gets added to the body when the dark mode toggle is clicked. */
-.dark-theme {
-  --primary: #162d53;
-  --primary-hover: #143680;
+html.dark-theme { /* More specific selector targeting html element with the class */
+  --primary: #3b82f6; /* Use the lighter blue from light theme for buttons */
+  --primary-hover: #60a5fa; /* Use the active link blue for hover */
   --background: rgb(27, 27, 27);
   --foreground: #d4d4d4;
   --muted: #252627;
   --muted-foreground: #7b7e81;
   --border: #e2e8f0;
   --radius: 0.5rem;
+  --primary-foreground: var(--foreground); /* Use the main foreground color for button text in dark mode */
+}
+
+/* Apply dark theme variables */
+html.dark-theme body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Header links in dark mode */
+html.dark-theme header nav a {
+  color: var(--foreground); /* Lighter color for dark background */
+}
+
+html.dark-theme header nav a.active {
+  color: #60a5fa; /* A distinct lighter blue for active link */
+}
+
+/* Footer styling in dark mode */
+html.dark-theme footer {
+  background-color: var(--muted); /* Slightly different background for footer */
+  color: var(--muted-foreground);
+}
+
+html.dark-theme footer ul {
+  list-style: none; /* Remove bullets */
+  padding-left: 0; /* Remove default padding */
+}
+
+html.dark-theme footer a {
+  color: var(--foreground); /* Make links readable */
+  text-decoration: underline; /* Add underline back if needed, or style differently */
+}
+
+html.dark-theme footer a:hover {
+  color: #60a5fa; /* Lighter blue on hover */
+}
+
+/* Input fields in dark mode */
+html.dark-theme input[type="text"],
+html.dark-theme input[type="email"],
+html.dark-theme input[type="password"],
+html.dark-theme textarea {
+  background-color: var(--muted);
+  color: var(--foreground);
+  border: 1px solid var(--muted-foreground);
 }

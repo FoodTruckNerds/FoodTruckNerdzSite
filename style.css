@@ -25,6 +25,7 @@ Dark theme is applied by adding the .dark-theme class to the body element.
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
+  --primary-foreground: white; /* Added for button text */
 }
 
 
@@ -41,7 +42,7 @@ Dark theme is applied by adding the .dark-theme class to the body element.
 }
 
 body {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif; /* Use the loaded Inter font */
   color: var(--foreground);
   background-color: var(--background);
   line-height: 1.5;
@@ -85,19 +86,20 @@ h2 {
 }
 
 .btn-primary {
-  background-color:red;
-  color: white;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   border-width: 2px;
-  border-color: red;
+  border-color: var(--primary);
   border-style: solid;
   
 }
 
 .btn-primary:hover {
-  background-color: white;
-  color: red;
+  /* Invert colors on hover using variables */
+  background-color: var(--primary-foreground);
+  color: var(--primary);
   border-style: solid;
-  border-color: red;
+  border-color: var(--primary);
   border-width: 2px;
 }
 
@@ -229,4 +231,8 @@ h2 {
     height: 100%;
     min-height: 500px;
   }
+}
+
+iframe {
+  overflow: hidden;
 }

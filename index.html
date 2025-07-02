@@ -19,8 +19,9 @@
   </script>
   <!-- styles -->
   <link rel="stylesheet" href="homepage.css">
+  <!-- Font Awesome CDN (using latest version via jsDelivr) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
   <!-- theme changer script -->
-  <script src="themes.js" ></script>
 </head>
 
 <body>
@@ -36,21 +37,35 @@
         <ul>
           <li><a href="/" class="active">Home</a></li>
           <li><a href="#">Browse Trucks</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <!-- Items to potentially move to 'More' menu -->
+          <li class="nav-item-hideable"><a href="#">About</a></li>
+          <li class="nav-item-hideable"><a href="#">Contact</a></li>
+          <!-- "More" Menu Item -->
+          <li class="more-menu-item">
+            <a href="#" class="more-menu-toggle" aria-label="More menu items">
+              <div class="menu-dash"></div>
+              <div class="menu-dash"></div>
+              <div class="menu-dash"></div>
+            </a>
+            <ul class="more-menu-dropdown">
+              <!-- Dropdown items will be populated by CSS/JS later, or manually moved like this -->
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
 
       <div class="auth-buttons">
         <div id="night-toggle">
-          <input type="checkbox" id="night-toggle-checkbox"/>
+          <input type="checkbox" id="night-toggle-checkbox" aria-label="Toggle dark mode"/>
           <label for="night-toggle-checkbox"></label>
         </div>
         <button class="btn btn-outline">Sign In</button>
         <button class="btn btn-primary">Sign Up</button>
       </div>
 
-      <button class="mobile-menu-toggle" id="menuToggle">
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle mobile menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" x2="20" y1="12" y2="12" />
@@ -113,17 +128,21 @@
 
       </div>
 
-      <!-- Right column: Check In  -->
+      <!-- Right column: Check In & Map -->
+      <div class="iframe-column">
 
-      <div id="checkin" style="outline: 1px black solid;">
-        <h1 style="font-family:Arial, Helvetica, sans-serif">Food Truck Check-in</h1>
+      <div id="checkin">
+        <h1 style="font-family:Arial, Helvetica, sans-serif">
+          Food Truck Check-in
+        </h1>
         <iframe src="checkin/index.html" width="100%" height="100%" frameBorder="0"></iframe>
       </div>
 
       
-      <div id="map" style="outline: 1px black solid;">
+      <div id="map">
         <iframe src="map/index.html" width="100%" height="500px" frameBorder="0"></iframe>
       </div>
+      </div> <!-- Close iframe-column -->
 
   </main>
 
@@ -140,9 +159,9 @@
           </ul>
         </div>
         <div class="footer-social">
-          <a href="#"><img src="facebook.svg" alt="facebook" /></a>
-          <a href="#"><img src="twitter.svg" alt="twitter" /></a>
-          <a href="#"><img src="instagram.svg" alt="instagram" /></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook fa-lg"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter fa-lg"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram fa-lg"></i></a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -150,5 +169,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- Theme script moved here to ensure DOM is loaded -->
+  <script src="themes.js"></script>
 </body>
 </html>

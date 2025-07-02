@@ -4,12 +4,51 @@
 
 #checkin {
     margin: 0;
-    padding: 0 2rem;
+    padding: 0; /* Remove padding */
     /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+    min-height: 300px; /* Give it a minimum height */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+#checkin h1 {
+    padding: 0 1rem; /* Add padding back to h1 */
+    margin-bottom: 1rem; /* Space below h1 */
+    flex-shrink: 0; /* Prevent h1 from shrinking */
+}
+
+#checkin iframe {
+    flex-grow: 1; /* Allow iframe to take remaining space */
+    width: 100%; /* Ensure iframe takes full width */
+    border: none; /* Remove default iframe border */
 }
 
 .content-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Mobile: single column */
     gap: 2rem;
+}
+
+.iframe-column {
+    display: flex; /* Arrange checkin/map vertically */
+    flex-direction: column;
+    gap: 2rem; /* Space between checkin and map */
+    width: 100%; /* Take full width of grid column */
+}
+
+#checkin {
+    /* Existing styles... */
+    width: 100%; /* Default to full width on mobile */
+    max-width: 500px; /* Add a max-width for larger screens if needed */
+    /* min-height: 300px; */ /* Keep or adjust as needed */
+    /* display: flex; */ /* Keep */
+    /* flex-direction: column; */ /* Keep */
+}
+
+/* Adjust checkin width on larger screens where grid is 2 columns */
+@media (min-width: 1024px) {
+    #checkin {
+        width: 50%; /* Make checkin 50% width on desktop */
+        align-self: flex-start; /* Align to the start of the flex container */
+    }
 }

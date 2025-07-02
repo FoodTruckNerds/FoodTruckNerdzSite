@@ -13,9 +13,12 @@ header {
 
 header .container {
     display: flex;
-    height: 8rem;
+    height: auto; /* Let content determine height */
+    min-height: 5rem; /* Set a minimum height */
+    padding: 1rem 0; /* Add vertical padding */
     align-items: center;
     justify-content: space-between;
+    gap: 1.5rem; /* Add gap between logo, nav, buttons */
 }
 
 .logo {
@@ -29,7 +32,8 @@ header .container {
 }
 
 .logo img {
-    height: 10vh;
+    height: 6vh; /* Reduce logo height (adjust as needed) */
+    max-height: 24px; /* Reduced to 60% of original size */
 }
 
 .logo-text {
@@ -37,7 +41,7 @@ header .container {
 }
 
 .main-nav {
-    display: none;
+    display: flex;
 }
 
 .main-nav ul {
@@ -56,7 +60,7 @@ header .container {
 
 .main-nav a:hover,
 .main-nav a.active {
-    color: red;
+    color: var(--primary); /* Use theme primary color */
 }
 
 .auth-buttons {

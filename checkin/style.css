@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
 
 .form-group {
     margin-bottom: 1rem;
@@ -15,15 +18,17 @@ input, select, button {
     margin-bottom: 1rem;
 }
 
+/* Remove button styles - should inherit from ../style.css .btn and .btn-primary */
+/*
 button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    cursor: pointer;
-    border-radius: var(--radius)
-    
+     background: #4CAF50;
+     color: white;
+     border: none;
+     padding: 0.75rem;
+     cursor: pointer;
+     border-radius: var(--radius)
 }
+*/
 
 button:hover {
     background: #45a049;
@@ -50,3 +55,31 @@ button:hover {
     color: #666;
 }
 
+/* Dark mode overrides for checkin iframe */
+html.dark-theme body {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+html.dark-theme input[type="text"] {
+    background-color: var(--muted);
+    color: var(--foreground);
+    border: 1px solid var(--muted-foreground);
+}
+
+/* Ensure button inherits dark theme variables correctly if needed */
+/* (The main style.css should handle .btn-primary dark mode) */
+
+html.dark-theme #coordinates {
+    color: var(--muted-foreground);
+}
+
+html.dark-theme .success {
+    background: #1a3a1f; /* Darker green */
+    color: #a7d7ae;
+}
+
+html.dark-theme .error {
+    background: #4d1818; /* Darker red */
+    color: #f7c5c4;
+}

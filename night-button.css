@@ -32,8 +32,8 @@ https://uiverse.io/vikramsinghnegi/shaggy-owl-31
   content: "";
   width: 70px;
   height: 40px;
-  background: #fff;
-  border: 2px solid #ddd;
+  background: var(--background); /* Use theme background */
+  border: 2px solid var(--border); /* Use theme border */
   box-shadow: inset -30px 0 0 #666;
   position: relative;
   display: inline-block;

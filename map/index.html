@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Truck Tracker</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <!-- Radar SDK -->
     <link href="https://js.radar.com/v4.4.10/radar.css" rel="stylesheet">
     <script src="https://js.radar.com/v4.4.10/radar.min.js"></script>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../style.css">
     <style>
+        /* Inherit base styles */
         body {
             margin: 0;
             padding: 0;
             display: flex;
             height: 100vh;
+            background-color: var(--background); /* Use theme variable */
+            color: var(--foreground); /* Use theme variable */
+            font-family: 'Inter', sans-serif; /* Ensure consistent font */
         }
         .container {
             display: flex;
@@ -23,40 +31,46 @@
         #map {
             flex: 2;
             height: 100vh;
+            /* Map background is controlled by Radar/Mapbox style */
         }
         .sidebar {
             flex: 1;
             max-width: 400px;
-            padding: 0 20px;
+            padding: 20px; /* Add top/bottom padding */
             overflow-y: auto;
+            background-color: var(--background); /* Use theme variable */
+            border-left: 1px solid var(--border); /* Add border */
         }
 
         header {
             margin-bottom: 20px;
-            font-style: georgia;
-            color: rgb(10, 1, 1);
+            /* font-style: georgia; */ /* Remove or use theme font */
+            color: var(--foreground); /* Use theme variable */
         }
         .truck-item {
-            background: white;
+            background: var(--background); /* Use theme variable */
             padding: 15px;
             margin-bottom: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: var(--radius); /* Use theme variable */
+            border: 1px solid var(--border); /* Use theme variable */
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */ /* Remove or adjust shadow for theme */
         }
         
         .registered-badge {
             display: inline-block;
-            background: #4CAF50;
-            color: white;
+            /* Style using btn classes if possible, or theme variables */
+            background: var(--primary);
+            color: var(--primary-foreground);
             padding: 2px 8px;
             border-radius: 12px;
             font-size: 0.8em;
             margin-left: 8px;
+            border: none;
         }
 
         .last-updated {
             font-size: 0.8em;
-            color: #666;
+            color: var(--muted-foreground); /* Use theme variable */
             margin-top: 4px;
             font-style: italic;
         }
@@ -64,8 +78,8 @@
         .loading-spinner {
             width: 40px;
             height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
+            border: 4px solid var(--muted); /* Use theme variable */
+            border-top: 4px solid var(--primary); /* Use theme variable */
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 20px auto;
@@ -77,9 +91,10 @@
         }
 
         .error-message {
-            color: #721c24;
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
+            /* Use theme variables or dedicated error styles */
+            color: #a94442; /* Keep specific error color */
+            background-color: #f2dede; /* Keep specific error color */
+            border: 1px solid #ebccd1; /* Keep specific error color */
             padding: 12px;
             border-radius: 4px;
             margin: 10px 0;
@@ -90,11 +105,62 @@
             top: 20px;
             right: 20px;
             padding: 12px 24px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            background: var(--foreground); /* Use theme variable */
+            color: var(--background); /* Use theme variable */
             border-radius: 4px;
             z-index: 1000;
         }
+    </style>
+
+    <!-- Dark Theme Overrides -->
+    <style>
+        html.dark-theme body {
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+        html.dark-theme .sidebar {
+            background-color: var(--background);
+            border-left: 1px solid var(--border);
+        }
+        html.dark-theme header {
+             color: var(--foreground);
+        }
+        html.dark-theme .truck-item {
+            background: var(--muted); /* Slightly different background for items */
+            border: 1px solid var(--border);
+            color: var(--foreground);
+        }
+        html.dark-theme .registered-badge {
+            /* Assuming primary color is adjusted in dark-theme.css */
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+         html.dark-theme .last-updated {
+            color: var(--muted-foreground);
+        }
+        html.dark-theme .loading-spinner {
+            border: 4px solid var(--muted);
+            border-top: 4px solid var(--primary);
+        }
+        html.dark-theme .error-message {
+            /* Darker error theme */
+            color: #f7c5c4;
+            background-color: #4d1818;
+            border: 1px solid #7a2b2b;
+        }
+        html.dark-theme .notification {
+            background: var(--foreground);
+            color: var(--background);
+        }
+        /* Adjust popup colors if needed (may require JS changes) */
+        html.dark-theme .radar-popup-content {
+             background-color: var(--muted) !important; /* May need !important */
+             color: var(--foreground) !important;
+        }
+         html.dark-theme .radar-popup-content h3,
+         html.dark-theme .radar-popup-content p {
+             color: var(--foreground) !important;
+         }
     </style>
 </head>
 <body>

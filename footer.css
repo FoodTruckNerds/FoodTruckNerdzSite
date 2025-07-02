@@ -5,16 +5,51 @@
 
 footer {
     min-height: 200px;
-    background-color: #0f172a;
+    background-color: var(--muted); /* Use theme muted color */
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    color: rgb(212, 212, 212);
+    color: var(--muted-foreground); /* Use theme muted foreground color */
 }
 
 footer .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Stack content and bottom vertically */
+    min-height: 160px; /* Ensure footer has some minimum height */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Space between nav and social */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%;
+    flex-grow: 1; /* Allow content to take available space */
+    padding-bottom: 1rem; /* Space above bottom */
+}
+
+.footer-nav {
+    /* Allow nav to grow if needed */
+    flex-grow: 1;
+}
+
+.footer-nav ul {
+    /* Existing styles from dark-theme.css handle list-style */
+    display: flex; /* Arrange links horizontally for now */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 1rem; /* Space between links */
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem; /* Space between social icons */
+    flex-shrink: 0; /* Prevent social icons from shrinking */
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem; /* Space above copyright */
+    border-top: 1px solid var(--border); /* Separator line */
+    margin-top: auto; /* Push to the bottom */
 }
